@@ -61,5 +61,4 @@ RSpec.describe ListsController, type: :controller do
       response.successful?
     end
   end
-
 end
