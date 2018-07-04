@@ -1,3 +1,3 @@
 class List < ApplicationRecord
-  validates :title, presence: true
+  validates :title, presence: { message: "Title is Required!" }
 end
