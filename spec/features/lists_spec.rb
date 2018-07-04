@@ -6,6 +6,15 @@ RSpec.feature "Lists", type: :feature do
       visit lists_path
       expect(page).to have_css("h1", text: "Lists")
     end
+    it "displays the individual lists" do
+      list = create(:list)
+      list2 = create(:list)
+      list3 = create(:list)
+      visit lists_path
+      expect(page).to have_content list.title
+      expect(page).to have_content list2.title
+      expect(page).to have_content list3.title
+    end
   end
 
   context "show" do

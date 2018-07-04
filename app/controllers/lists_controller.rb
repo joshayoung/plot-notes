@@ -1,5 +1,7 @@
 class ListsController < ApplicationController
-  def index; end
+  def index
+    @lists = List.all
+  end
 
   def show
     @list = List.find_by(id: params[:id])
@@ -14,7 +16,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(title: params[:list][:title])
+    @list = List.new(list_params)
     if @list.save
       flash[:notice] = "List Saved Successfully"
       redirect_to lists_url
@@ -25,7 +27,7 @@ class ListsController < ApplicationController
 
   def update
     @list = List.find_by(id: params[:id])
-    if @list.update(title: params[:list][:title])
+    if @list.update(list_params)
       flash[:notice] = "List Updated Successfully!"
       redirect_to(lists_url)
     else
@@ -36,5 +38,9 @@ class ListsController < ApplicationController
   def destroy
     List.find(params[:id]).destroy
     redirect_to(lists_url)
+  end
+
+  def list_params
+    params.require(:list).permit(:title)
   end
 end
