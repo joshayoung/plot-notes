@@ -10,6 +10,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class='wrap'>
+      <nav>
+        <%= render "layouts/navigation" %>
+      </nav>
+      <%= yield %>
+    </div>
   </body>
 </html>
