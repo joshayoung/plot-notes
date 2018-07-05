@@ -2,10 +2,6 @@ require "rails_helper"
 
 RSpec.feature "Lists", type: :feature do
   context "index" do
-    it "displays the title" do
-      visit lists_path
-      expect(page).to have_css("h1", text: "Lists")
-    end
     it "displays the individual lists" do
       list = create(:list)
       list2 = create(:list)
@@ -28,15 +24,14 @@ RSpec.feature "Lists", type: :feature do
   context "new" do
     it "should display form" do
       visit new_list_path
-      expect(page).to have_css("h1", text: "Create New List")
-      expect(page).to have_css("form", text: "Title")
+      expect(page).to have_css("legend", text: "Save New List")
     end
   end
 
   context "edit" do
     it "should display form with data" do
       visit edit_list_path(create(:list))
-      expect(page).to have_css("h1", text: "Edit List")
+      expect(page).to have_css("legend", text: "Edit List")
     end
   end
 
@@ -46,16 +41,16 @@ RSpec.feature "Lists", type: :feature do
     end
     it "should fail with message" do
       within("form") do
-        fill_in "Title", with: nil
+        fill_in "list_title", with: nil
       end
-      click_button "Create List"
+      click_button "Create"
       expect(page).to have_content("Title is Required!")
     end
     it "should save successfully" do
       within("form") do
-        fill_in "Title", with: "List"
+        fill_in "list_title", with: "List"
       end
-      click_button "Create List"
+      click_button "Create"
       expect(page).to have_content("List Saved Successfully")
     end
   end
@@ -67,17 +62,17 @@ RSpec.feature "Lists", type: :feature do
     end
     it "should be successful" do
       within("form") do
-        fill_in("Title", with: "First List")
+        fill_in("list_title", with: "First List")
       end
-      click_button "Update List"
+      click_button "Save"
       expect(current_path).to eql(lists_path)
       expect(page).to have_content "List Updated Successfully!"
     end
     it "should fail" do
       within("form") do
-        fill_in "Title", with: nil
+        fill_in "list_title", with: nil
       end
-      click_button "Update List"
+      click_button "Save"
       expect(page).to have_content "Title is Required!"
     end
   end
