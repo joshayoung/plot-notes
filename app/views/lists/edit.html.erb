@@ -1,5 +1,8 @@
-<h1>Edit List</h1>
-<%= simple_form_for @list do |f| %>
-  <%= f.input :title, label: "Title" %>
-  <%= f.button :submit %>
+<%= render "shared/errors" %>
+<%= form_for @list do |f| %>
+  <fieldset>
+    <legend>Edit List</legend>
+    <%= f.text_field :title %>
+    <%= f.submit "Save" %>
+  </fieldset>
 <% end %>
