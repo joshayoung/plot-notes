@@ -1,6 +1,8 @@
 <%= render "shared/errors" %>
-<h1>Create New List</h1>
-<%= simple_form_for @list do |f| %>
-  <%= f.input :title, label: "Title" %>
-  <%= f.button :submit %>
+<%= form_for @list do |f| %>
+  <fieldset>
+    <legend>Save New List</legend>
+    <%= f.text_field :title %>
+    <%= f.submit "Create" %>
+  </fieldset>
 <% end %>
