@@ -5,7 +5,7 @@
 #### Setup Instructions:
 `rails new plot-notes -T`
 
-##### Create Models:
+##### Create Model:
 `rails g model list title:string`
 
 ##### Setup rspec:
@@ -15,3 +15,15 @@
 
 ##### Create rspec model test file:
 `rails g rspec:model list`
+
+##### Create the controller:
+`rails g controller lists`
+
+##### Added other gems:
+- Look at GemFile
+
+##### Add Note association:
+`rails g model note title:string details:string list:references`
+
+##### Create the notes controller:
+`rails g controller notes`
