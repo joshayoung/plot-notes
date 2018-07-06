@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root "lists#index"
-  resources :lists
+  resources :lists do
+    resources :notes
+  end
 end
