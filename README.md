@@ -19,11 +19,18 @@
 ##### Create the controller:
 `rails g controller lists`
 
+##### Add feature test file:
+`rails g rspec:feature lists`
+
 ##### Added other gems:
 - Look at GemFile
+
 
 ##### Add Note association:
 `rails g model note title:string details:string list:references`
 
 ##### Create the notes controller:
 `rails g controller notes`
+
+##### Add Notes feature spec:
+`rails g rspec:feature notes`
