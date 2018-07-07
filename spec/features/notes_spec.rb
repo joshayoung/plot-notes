@@ -70,8 +70,10 @@ RSpec.feature "Notes", type: :feature do
 
   context "delete" do
     it "should be successful" do
-      visit list_path(create(:list))
-      expect { click_link("Delete") }.to change(List, :count).by(-1)
+      @list = create(:list)
+      note = create(:note, list_id: @list.id)
+      visit list_note_path(@list, note)
+      expect { click_link("Delete") }.to change(Note, :count).by(-1)
       expect(current_path).to eq(lists_path)
     end
   end
