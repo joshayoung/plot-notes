@@ -1,6 +1,6 @@
-<% if @list.errors.any? %>
+<% if object.errors.any? %>
   <ul class='errors'>
-    <% @list.errors.full_messages.each do |error| %>
+    <% object.errors.full_messages.each do |error| %>
       <li><%= error %></li>
     <% end %>
   </ul>

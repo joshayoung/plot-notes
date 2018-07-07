@@ -1,0 +1,9 @@
+<%= render "shared/errors", object: @note %>
+<%= form_for [@list, @note] do |f| %>
+  <fieldset>
+    <legend>Save New Note</legend>
+    <%= f.text_field :title %>
+    <%= f.text_area :details %>
+    <%= f.submit "Create" %>
+  </fieldset>
+<% end %>
