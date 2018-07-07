@@ -1,5 +1,17 @@
 <h2><%= @list.title %></h2>
 
+<% if @list.notes.any? %>
+  <ul>
+    <% @list.notes.each do |n| %>
+      <li><%= n.title %></li>
+      <li><%= link_to("Edit", edit_list_note_path(@list, n)) %></li>
+      <li><%= link_to("Delete", list_note_path(@list, n), method: :delete, data: { confirm: "Ok?" }) %></li>
+    <% end %>
+    <li><%= link_to "New Note", new_list_note_path(@list) %></li>
+  </ul>
+<% end %>
+
+
 <% content_for(:navigation) do %>
   <%= link_to "Edit This List", edit_list_path(@list) %>
   <%= link_to "Delete This List", @list, method: :delete, data: { confirm: "Click 'OK' to remove." } %>

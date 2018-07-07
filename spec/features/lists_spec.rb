@@ -16,8 +16,15 @@ RSpec.feature "Lists", type: :feature do
   context "show" do
     it "displays details" do
       list = create(:list)
+      create(:note, list_id: list.id)
       visit list_path(list)
       expect(page).to have_content list.title
+      list.notes.each do |n|
+        expect(page).to have_content n.title
+        expect(page).to have_css("li", text: "Edit")
+        expect(page).to have_css("li", text: "Delete")
+      end
+      expect(page).to have_content "New Note"
     end
   end
 

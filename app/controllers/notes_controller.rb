@@ -1,8 +1,8 @@
 class NotesController < ApplicationController
 
   def show
-    list = List.find_by(id: params[:list_id])
-    @note = list.notes.find_by(id: params[:id])
+    @list = List.find_by(id: params[:list_id])
+    @note = @list.notes.find_by(id: params[:id])
   end
 
   def new
@@ -37,5 +37,10 @@ class NotesController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @list = List.find_by(id: params[:list_id])
+    @note = @list.notes.find_by(id: params[:id])
+    @note.destroy
+    redirect_to(lists_url)
+  end
 end
