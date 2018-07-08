@@ -17,6 +17,9 @@ RSpec.feature "Lists", type: :feature do
     before(:each) do
       @list = create(:list)
       create(:note, list_id: @list.id)
+      @note1 = create(:note, title: "one", list_id: @list.id, completed: true)
+      @note2 = create(:note, title: "two", list_id: @list.id, archived: true)
+      @note3 = create(:note, title: "three", list_id: @list.id)
       visit list_path(@list)
     end
     it "displays list title with 'New Note' link" do
@@ -27,13 +30,13 @@ RSpec.feature "Lists", type: :feature do
       expect(page).to have_content "Edit"
       expect(page).to have_content "Delete"
     end
-    #Need to differentiate between this and the one above:
-    it "displays the notes for each list" do
-      @list.notes.each do |n|
-        expect(page).to have_content n.title
-        expect(page).to have_css("li", text: "Edit")
-        expect(page).to have_css("li", text: "Delete")
-      end
+    it "only displays active notes for each list" do
+      expect(page).not_to have_text(@note1.title)
+      expect(page).not_to have_text(@note2.title)
+      expect(page).to have_text(@note3.title)
+      #Need to differentiate between this and the one above (edit/delete):
+      expect(page).to have_css("li", text: "Edit")
+      expect(page).to have_css("li", text: "Delete")
     end
   end
 
