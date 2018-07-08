@@ -9,7 +9,7 @@
 
 <% if @list.notes.any? %>
   <ul class='notes'>
-    <% @list.notes.each do |n| %>
+    <% @list.notes.active.each do |n| %>
       <li>
         <span><%= n.title %></span>
         <%= link_to("Edit", edit_list_note_path(@list, n)) %>
@@ -20,5 +20,5 @@
 <% end %>
 
 <% content_for(:navigation) do %>
-<li><%= link_to "New Note", new_list_note_path(@list) %></li>
+  <li><%= link_to "New Note", new_list_note_path(@list) %></li>
 <% end %>
