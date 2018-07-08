@@ -24,9 +24,10 @@ RSpec.feature "Lists", type: :feature do
       expect(page).to have_content "New Note"
     end
     it "displays links to edit and delete the list" do
-      expect(page).to have_content "Edit List"
-      expect(page).to have_content "Delete List"
+      expect(page).to have_content "Edit"
+      expect(page).to have_content "Delete"
     end
+    #Need to differentiate between this and the one above:
     it "displays the notes for each list" do
       @list.notes.each do |n|
         expect(page).to have_content n.title

@@ -1,3 +1,27 @@
-// Place all the styles related to the notes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+ul.notes {
+  list-style-type: none;
+  li {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    > * {
+      padding: 2px 7px;
+      flex: 0 1 auto;
+    }
+    span {
+      flex-basis: 300px;
+      border-left: 2px solid $color3;
+    }
+    a {
+      border-radius: 4px;
+      background: $color2;
+      padding: 4px;
+      color: #fff;
+      text-align: center;
+      flex-basis: 30px;
+      font-size: 10px;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+  }
+}

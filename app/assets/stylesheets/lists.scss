@@ -1,3 +1,27 @@
+.list {
+  display: flex;
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    li {
+      display: inline-block;
+    }
+    a {
+      text-decoration: none;
+      border-radius: 4px;
+      background: $color3;
+      color: #fff;
+      padding: 5px 10px;
+      display: block;
+    }
+  }
+}
 .lists {
   list-style-type: none;
   max-width: 20rem;
