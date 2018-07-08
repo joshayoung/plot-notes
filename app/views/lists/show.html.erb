@@ -1,3 +1,4 @@
+<%= render "shared/flash" %>
 <h2><%= @list.title %></h2>
 
 <% if @list.notes.any? %>
@@ -11,8 +12,7 @@
   </ul>
 <% end %>
 
-
 <% content_for(:navigation) do %>
-  <%= link_to "Edit This List", edit_list_path(@list) %>
-  <%= link_to "Delete This List", @list, method: :delete, data: { confirm: "Click 'OK' to remove." } %>
+  <%= link_to "Edit List", edit_list_path(@list) %>
+  <%= link_to "Delete List", @list, method: :delete, data: { confirm: "Click 'OK' to remove." } %>
 <% end %>

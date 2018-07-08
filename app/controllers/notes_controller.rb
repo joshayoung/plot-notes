@@ -1,5 +1,4 @@
 class NotesController < ApplicationController
-
   def show
     @list = List.find_by(id: params[:list_id])
     @note = @list.notes.find_by(id: params[:id])
@@ -7,7 +6,7 @@ class NotesController < ApplicationController
 
   def new
     @list = List.find_by(id: params[:list_id])
-    @note = Note.new;
+    @note = Note.new
   end
 
   def edit
@@ -16,11 +15,11 @@ class NotesController < ApplicationController
   end
 
   def create
-    list = List.find_by(id: params[:list_id])
-    @note = list.notes.new(title: params[:note][:title], details: params[:note][:details])
+    @list = List.find_by(id: params[:list_id])
+    @note = @list.notes.new(note_params)
     if @note.save
       flash[:notice] = "Note Saved Successfully"
-      redirect_to list_notes_path(list)
+      redirect_to list_path(@list)
     else
       render :new
     end
@@ -29,9 +28,9 @@ class NotesController < ApplicationController
   def update
     @list = List.find_by(id: params[:list_id])
     @note = @list.notes.find_by(id: params[:id])
-    if (@note.update(title: params[:note][:title], details: params[:note][:details]))
+    if @note.update(note_params)
       flash[:notice] = "Note Updated Successfully!"
-      redirect_to(list_notes_path(@list))
+      redirect_to(list_path(@list))
     else
       render :edit
     end
@@ -42,5 +41,11 @@ class NotesController < ApplicationController
     @note = @list.notes.find_by(id: params[:id])
     @note.destroy
     redirect_to(lists_url)
+  end
+
+private
+
+  def note_params
+    params.require(:note).permit(:title, :details)
   end
 end

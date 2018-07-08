@@ -43,6 +43,13 @@ RSpec.describe ListsController, type: :controller do
       list = create(:list)
       post :create, params: { list: { title: list.title } }
       response.successful?
+      ## 302
+      expect(response).to redirect_to(lists_path)
+    end
+    it "stays on current page on failure" do
+      post :create, params: { list: { title: nil } }
+      ## 200
+      expect(response.status).to eql(200)
     end
   end
 
@@ -52,6 +59,12 @@ RSpec.describe ListsController, type: :controller do
       patch :update, params: { id: list, list: { title: list.title } }
       response.successful?
     end
+    it "stays on current page on failure" do
+      list = create(:list)
+      patch :update, params: { id: list, list: { title: nil } }
+      ## 200
+      expect(response.status).to eql(200)
+    end
   end
 
   context "DELETE #destroy" do
@@ -59,6 +72,7 @@ RSpec.describe ListsController, type: :controller do
       list = create(:list)
       delete :destroy, params: { id: list.to_param }
       response.successful?
+      expect(response).to redirect_to(lists_path)
     end
   end
 end

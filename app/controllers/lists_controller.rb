@@ -40,6 +40,8 @@ class ListsController < ApplicationController
     redirect_to(lists_url)
   end
 
+private
+
   def list_params
     params.require(:list).permit(:title)
   end

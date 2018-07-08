@@ -1,16 +1,18 @@
 require 'rails_helper'
 
 RSpec.feature "Notes", type: :feature do
-  context "index" do
-  end
-
   context "show" do
+    before(:each) do
+      @list = create(:list)
+      @note = create(:note, list_id: @list.id)
+      visit list_note_path(@list.id, @note.id)
+    end
     it "displays note details" do
-      list = create(:list)
-      note = create(:note, list_id: list.id)
-      visit list_note_path(list.id, note.id)
-      expect(page).to have_content note.title
-      expect(page).to have_content note.details
+      expect(page).to have_content @note.title
+      expect(page).to have_content @note.details
+    end
+    it "has a delete link" do
+      expect(page).to have_content "Delete"
     end
   end
 
@@ -32,11 +34,18 @@ RSpec.feature "Notes", type: :feature do
   end
 
   context "create" do
+    before(:each) do
+      @list = create(:list)
+      visit new_list_note_path(@list)
+    end
     it "should fail with no title" do
+      within("form") do
+        fill_in "note_title", with: nil
+      end
+      click_button "Create"
+      expect(page).to have_content("Title is Required!")
     end
     it "should save successfully" do
-      list = create(:list)
-      visit new_list_note_path(list)
       within("form") do
         fill_in "note_title", with: "Note"
       end
@@ -56,7 +65,6 @@ RSpec.feature "Notes", type: :feature do
         fill_in("note_title", with: "First Note")
       end
       click_button "Save"
-      expect(current_path).to eq(list_notes_path(@list))
       expect(page).to have_content "Note Updated Successfully"
     end
     it "should fail" do
@@ -74,7 +82,6 @@ RSpec.feature "Notes", type: :feature do
       note = create(:note, list_id: @list.id)
       visit list_note_path(@list, note)
       expect { click_link("Delete") }.to change(Note, :count).by(-1)
-      expect(current_path).to eq(lists_path)
     end
   end
 end

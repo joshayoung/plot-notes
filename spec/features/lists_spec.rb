@@ -14,17 +14,25 @@ RSpec.feature "Lists", type: :feature do
   end
 
   context "show" do
-    it "displays details" do
-      list = create(:list)
-      create(:note, list_id: list.id)
-      visit list_path(list)
-      expect(page).to have_content list.title
-      list.notes.each do |n|
+    before(:each) do
+      @list = create(:list)
+      create(:note, list_id: @list.id)
+      visit list_path(@list)
+    end
+    it "displays list title with 'New Note' link" do
+      expect(page).to have_content @list.title
+      expect(page).to have_content "New Note"
+    end
+    it "displays links to edit and delete the list" do
+      expect(page).to have_content "Edit List"
+      expect(page).to have_content "Delete List"
+    end
+    it "displays the notes for each list" do
+      @list.notes.each do |n|
         expect(page).to have_content n.title
         expect(page).to have_css("li", text: "Edit")
         expect(page).to have_css("li", text: "Delete")
       end
-      expect(page).to have_content "New Note"
     end
   end
 
@@ -72,7 +80,7 @@ RSpec.feature "Lists", type: :feature do
         fill_in("list_title", with: "First List")
       end
       click_button "Save"
-      expect(current_path).to eql(lists_path)
+      #expect(current_path).to eql(lists_path)
       expect(page).to have_content "List Updated Successfully!"
     end
     it "should fail" do
@@ -88,7 +96,6 @@ RSpec.feature "Lists", type: :feature do
     it "should be successful" do
       visit list_path(create(:list))
       expect { click_link("Delete") }.to change(List, :count).by(-1)
-      expect(current_path).to eql(lists_path)
     end
   end
 end
