@@ -42,10 +42,14 @@ label {
   }
 }
 
+textarea,
 input[type='text'] {
   padding: 0.5rem 1rem;
   border-radius: 3px;
   border: unset;
+  display: block;
+  min-width: 300px;
+  margin-bottom: 4px;
 }
 
 input[type='submit'] {
@@ -94,17 +98,17 @@ body {
     }
     li {
       display: inline-block;
-    }
-    a {
-      padding: 0.5rem;
-      background: $color2;
-      color: #fff;
-      margin-right: 0.5rem;
-      text-decoration: none;
-      border-radius: 2px;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      display: inline-block;
+      a {
+        padding: 0.5rem;
+        background: $color2;
+        color: #fff;
+        margin-right: 0.5rem;
+        text-decoration: none;
+        border-radius: 2px;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        display: inline-block;
+      }
     }
   }
 }
