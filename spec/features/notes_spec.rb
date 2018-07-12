@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Notes", type: :feature do
   context "show" do
@@ -84,4 +84,23 @@ RSpec.feature "Notes", type: :feature do
       expect { click_link("Delete") }.to change(Note, :count).by(-1)
     end
   end
+
+  context "archive" do
+    it "should be successful" do
+      list = create(:list)
+      create(:note, list_id: list.id)
+      visit list_path(list)
+      expect { click_link("Archive") }.to change(Note.active, :count).by(-1)
+    end
+  end
+
+  context "complete" do
+    it "should be successful" do
+      list = create(:list)
+      create(:note, list_id: list.id)
+      visit list_path(list)
+      expect { click_link("Complete") }.to change(Note.active, :count).by(-1)
+    end
+  end
+
 end
