@@ -2,7 +2,7 @@
 <%= form_for @list do |f| %>
   <fieldset>
     <legend>Save New List</legend>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, maxlength: 20 %>
     <%= f.submit "Create" %>
   </fieldset>
 <% end %>
