@@ -11,9 +11,16 @@
   <ul class='notes'>
     <% @list.notes.active.each do |n| %>
       <li>
-        <span><%= n.title %></span>
-        <%= link_to("Edit", edit_list_note_path(@list, n)) %>
-        <%= link_to("Delete", list_note_path(@list, n), method: :delete, data: { confirm: "Ok?" }) %>
+        <div>
+          <span><%= n.title %></span>
+          <%= link_to("Edit", edit_list_note_path(@list, n)) %>
+          <%= link_to("Delete", list_note_path(@list, n), method: :delete, data: { confirm: "Ok?" }) %>
+        </div>
+        <div>
+          <p><%= n.details %></p>
+          <%= link_to("Archive", archive_list_note_path(@list, n), method: :post, data: { confirm: "Ok?" }, class: 'archive') %>
+          <%= link_to("Complete", complete_list_note_path(@list, n), method: :post, data: { confirm: "Ok?" }, class: 'complete') %>
+        </div>
       </li>
     <% end %>
   </ul>

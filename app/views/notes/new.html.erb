@@ -2,8 +2,8 @@
 <%= form_for [@list, @note] do |f| %>
   <fieldset>
     <legend>Save New Note</legend>
-    <%= f.text_field :title %>
-    <%= f.text_area :details %>
+    <%= f.text_field :title, maxlength: 20 %>
+    <%= f.text_area :details, maxlength: 150 %>
     <%= f.submit "Create" %>
   </fieldset>
 <% end %>

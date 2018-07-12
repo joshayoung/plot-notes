@@ -43,6 +43,22 @@ class NotesController < ApplicationController
     redirect_to(lists_url)
   end
 
+  def complete
+    @list = List.find_by(id: params[:list_id])
+    @note = @list.notes.find_by(id: params[:id])
+    @note.update(completed: true)
+    flash[:notice] = "Note Updated Successfully!"
+    redirect_to(list_path(@list))
+  end
+
+  def archive
+    @list = List.find_by(id: params[:list_id])
+    @note = @list.notes.find_by(id: params[:id])
+    @note.update(archived: true)
+    flash[:notice] = "Note Updated Successfully!"
+    redirect_to(list_path(@list))
+  end
+
 private
 
   def note_params

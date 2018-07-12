@@ -1,6 +1,7 @@
 class Note < ApplicationRecord
   belongs_to :list
-  validates :title, presence: { message: "Title is Required!" }
+  validates :title, presence: { message: "Title is Required!" }, length: { maximum: 20 }
+  validates :details, length: { maximum: 150 }
 
 
   class << self
