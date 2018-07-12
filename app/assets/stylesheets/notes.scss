@@ -1,27 +1,41 @@
 ul.notes {
   list-style-type: none;
   li {
-    display: flex;
-    align-items: center;
-    margin: 4px 0;
-    > * {
-      padding: 2px 7px;
-      flex: 0 1 auto;
-    }
-    span {
-      flex-basis: 300px;
+    div {
+      display: flex;
+      align-items: center;
+      margin: 2px 0;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
       border-left: 2px solid $color3;
-    }
-    a {
-      border-radius: 4px;
-      background: $color2;
-      padding: 4px;
-      color: #fff;
-      text-align: center;
-      flex-basis: 30px;
-      font-size: 10px;
-      margin: 0 10px;
-      text-decoration: none;
+      > * {
+        padding: 2px 7px;
+        flex: 0 1 auto;
+      }
+      span {
+        flex-basis: 300px;
+      }
+      p {
+        margin: 0;
+        margin-bottom: 10px;
+        flex-basis: 300px;
+      }
+      a {
+        border-radius: 4px;
+        background: $color2;
+        padding: 4px;
+        color: #fff;
+        min-width: 50px;
+        text-align: center;
+        flex-basis: 30px;
+        font-size: 10px;
+        margin: 0 10px;
+        text-decoration: none;
+        &.archive,
+        &.complete {
+          background: $color4;
+        }
+      }
     }
   }
 }
