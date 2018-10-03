@@ -29,6 +29,7 @@ RSpec.describe Note, type: :model do
       expect(list.notes.archived).to eq([note1, note3])
     end
   end
+
   context "completed method" do
     it "only returns completed notes" do
       list = create(:list)
@@ -38,6 +39,7 @@ RSpec.describe Note, type: :model do
       expect(list.notes.completed).to eq([note1, note3])
     end
   end
+
   context "active method" do
     it "only returns active notes" do
       list = create(:list)
