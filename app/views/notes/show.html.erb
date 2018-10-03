@@ -1,3 +1,4 @@
 <%= @note.title %>
 <%= @note.details %>
+
 <%= link_to("Delete", list_note_path(@list.id, @note.id), method: :delete, data: { confirm: "Ok?" }) %>
