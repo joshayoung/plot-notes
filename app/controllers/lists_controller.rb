@@ -40,9 +40,15 @@ class ListsController < ApplicationController
     redirect_to(lists_url)
   end
 
-  def archived; end
+  def archived
+    @list = List.find_by(id: params[:id])
+    @archived_notes = @list.archived
+  end
 
-  def completed; end
+  def completed
+    @list = List.find_by(id: params[:id])
+    @completed_notes = @list.completed
+  end
 
 private
 
