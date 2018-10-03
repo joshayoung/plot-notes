@@ -42,12 +42,10 @@ class ListsController < ApplicationController
 
   def archived
     @list = List.find_by(id: params[:id])
-    @archived_notes = @list.archived
   end
 
   def completed
     @list = List.find_by(id: params[:id])
-    @completed_notes = @list.completed
   end
 
 private
