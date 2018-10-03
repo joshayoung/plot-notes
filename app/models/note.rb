@@ -3,7 +3,6 @@ class Note < ApplicationRecord
   validates :title, presence: { message: "Title is Required!" }, length: { maximum: 20 }
   validates :details, length: { maximum: 150 }
 
-
   class << self
     def archived
       where("archived = '1'")
