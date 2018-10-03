@@ -4,6 +4,8 @@
   <ul>
     <li><%= link_to "Edit", edit_list_path(@list) %></li>
     <li><%= link_to "Delete", @list, method: :delete, data: { confirm: "Click 'OK' to remove." } %></li>
+    <li><%= link_to "Archived", archived_list_path(@list) %></li>
+    <li><%= link_to "Completed", completed_list_path(@list) %></li>
   </ul>
 </div>
 
@@ -12,7 +14,7 @@
     <% @list.notes.active.each do |n| %>
       <li>
         <div>
-          <span><%= n.title %></span>
+          <span><%= link_to(n.title, list_note_path(n)) %></span>
           <%= link_to("Edit", edit_list_note_path(@list, n)) %>
           <%= link_to("Delete", list_note_path(@list, n), method: :delete, data: { confirm: "Ok?" }) %>
         </div>

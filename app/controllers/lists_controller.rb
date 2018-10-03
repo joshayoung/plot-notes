@@ -40,6 +40,10 @@ class ListsController < ApplicationController
     redirect_to(lists_url)
   end
 
+  def archived; end
+
+  def completed; end
+
 private
 
   def list_params
