@@ -40,7 +40,7 @@ class NotesController < ApplicationController
     @list = List.find_by(id: params[:list_id])
     @note = @list.notes.find_by(id: params[:id])
     @note.destroy
-    redirect_to(lists_url)
+    redirect_to(root_url)
   end
 
   def complete

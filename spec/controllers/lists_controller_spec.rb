@@ -1,20 +1,6 @@
 require "rails_helper"
 
 RSpec.describe ListsController, type: :controller do
-  context "GET #index" do
-    render_views
-    it "returns http success" do
-      get :index
-      response.successful?
-    end
-
-    it "shows lists" do
-      total = List.all.count
-      get :index
-      expect(response.body).to match total.to_s
-    end
-  end
-
   context "GET #show" do
     it "returns http success" do
       list = create(:list)
@@ -44,7 +30,7 @@ RSpec.describe ListsController, type: :controller do
       post :create, params: { list: { title: list.title } }
       response.successful?
       ## 302
-      expect(response).to redirect_to(lists_path)
+      expect(response).to redirect_to(root_path)
     end
     it "stays on current page on failure" do
       post :create, params: { list: { title: nil } }
@@ -72,7 +58,7 @@ RSpec.describe ListsController, type: :controller do
       list = create(:list)
       delete :destroy, params: { id: list.to_param }
       response.successful?
-      expect(response).to redirect_to(lists_path)
+      expect(response).to redirect_to(root_path)
     end
   end
 end

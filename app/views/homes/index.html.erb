@@ -1,0 +1,11 @@
+<%= render "shared/flash" %>
+<ul class='lists'>
+  <% @lists.each do |list| %>
+    <li><%= link_to(list.title, list_path(list)) %></li>
+  <% end %>
+</ul>
+
+<% content_for(:navigation) do %>
+  <li><%= link_to "All Archived Notes", archived_notes_path %></li>
+  <li><%= link_to "All Completed Notes", completed_notes_path %></li>
+<% end %>
