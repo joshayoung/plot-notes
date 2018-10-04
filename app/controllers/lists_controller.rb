@@ -1,52 +1,45 @@
 class ListsController < ApplicationController
-  def show
-    @list = List.find_by(id: params[:id])
-  end
+  before_action :list_id, exclude: [:new, :create]
+
+  def show; end
 
   def new
     @list = List.new
   end
 
-  def edit
-    @list = List.find_by(id: params[:id])
-  end
+  def edit; end
 
   def create
     @list = List.new(list_params)
-    if @list.save
-      flash[:notice] = "List Saved Successfully"
-      redirect_to root_url
-    else
-      render :new
-    end
+    return redirect_to root_url, notice: message if @list.save
+    render :new
   end
 
   def update
-    @list = List.find_by(id: params[:id])
-    if @list.update(list_params)
-      flash[:notice] = "List Updated Successfully!"
-      redirect_to(root_url)
-    else
-      render :edit
-    end
+    return redirect_to root_url, notice: message("Updated") if @list.update(list_params)
+    render :edit
   end
 
   def destroy
-    List.find(params[:id]).destroy
-    redirect_to(root_url)
+    redirect_to(root_url) if @list.destroy
   end
 
-  def archived
-    @list = List.find_by(id: params[:id])
-  end
+  def archived; end
 
-  def completed
-    @list = List.find_by(id: params[:id])
-  end
+  def completed; end
 
 private
 
+  def message(msg = nil)
+    msg ||= "Saved"
+    "List #{msg} Successfully"
+  end
+
   def list_params
     params.require(:list).permit(:title)
+  end
+
+  def list_id
+    @list = List.find_by(id: params[:id])
   end
 end
