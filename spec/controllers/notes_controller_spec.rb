@@ -66,7 +66,7 @@ RSpec.describe NotesController, type: :controller do
       note = create(:note, list_id: list.id)
       delete :destroy, params: { id: note.to_param, list_id: list.id }
       response.successful?
-      expect(response).to redirect_to(lists_path)
+      expect(response).to redirect_to(root_path)
     end
   end
 end

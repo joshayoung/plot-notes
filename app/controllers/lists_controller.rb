@@ -1,8 +1,4 @@
 class ListsController < ApplicationController
-  def index
-    @lists = List.all
-  end
-
   def show
     @list = List.find_by(id: params[:id])
   end
@@ -19,7 +15,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     if @list.save
       flash[:notice] = "List Saved Successfully"
-      redirect_to lists_url
+      redirect_to root_url
     else
       render :new
     end
@@ -29,7 +25,7 @@ class ListsController < ApplicationController
     @list = List.find_by(id: params[:id])
     if @list.update(list_params)
       flash[:notice] = "List Updated Successfully!"
-      redirect_to(lists_url)
+      redirect_to(root_url)
     else
       render :edit
     end
@@ -37,7 +33,7 @@ class ListsController < ApplicationController
 
   def destroy
     List.find(params[:id]).destroy
-    redirect_to(lists_url)
+    redirect_to(root_url)
   end
 
   def archived

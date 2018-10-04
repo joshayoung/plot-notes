@@ -1,0 +1,8 @@
+<ul class='lists'>
+  <% @completed_notes.each do |n| %>
+    <li>
+      <%= n.title %>
+      <%= n.details %>
+    </li>
+  <% end %>
+</ul>
