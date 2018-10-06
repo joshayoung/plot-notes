@@ -2,15 +2,20 @@
 <ul class='lists'>
   <% @lists.each do |list| %>
     <li>
-      <%= link_to(list.title, list_path(list)) %>
-      <em><%= count_format(list.notes.active.count, "active") %></em>
-      <em><%= count_format(list.notes.completed.count, "completed") %></em>
-      <em><%= count_format(list.notes.archived.count, "archived") %></em>
+      <a href="<%= list_path(list) %>">
+        <div><%= list.title %></div>
+        <div class="counts">
+          <%= count_format(list.notes.active.count, "active") %>
+          <%= count_format(list.notes.completed.count, "completed") %>
+          <%= count_format(list.notes.archived.count, "archived") %>
+        </div>
+      </a>
     </li>
   <% end %>
 </ul>
 
 <% content_for(:navigation) do %>
-  <li><%= link_to "All Archived Notes", archived_notes_path %></li>
-  <li><%= link_to "All Completed Notes", completed_notes_path %></li>
+
+  <li><%= link_to raw("Archived &#x1F4C1;"), archived_notes_path %></li>
+  <li><%= link_to raw("Completed &#x1F3C1;"), completed_notes_path %></li>
 <% end %>

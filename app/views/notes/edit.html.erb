@@ -3,7 +3,7 @@
   <fieldset>
     <legend>Edit Note</legend>
     <%= f.text_field :title, maxlength: 20 %>
-    <%= f.text_field :details, maxlength: 150 %>
+    <%= f.text_area :details, maxlength: 150 %>
     <%= f.submit "Save" %>
   </fieldset>
 <% end %>
