@@ -1,7 +1,12 @@
 <%= render "shared/flash" %>
 <ul class='lists'>
   <% @lists.each do |list| %>
-    <li><%= link_to(list.title, list_path(list)) %></li>
+    <li>
+      <%= link_to(list.title, list_path(list)) %>
+      <em><%= count_format(list.notes.active.count, "active") %></em>
+      <em><%= count_format(list.notes.completed.count, "completed") %></em>
+      <em><%= count_format(list.notes.archived.count, "archived") %></em>
+    </li>
   <% end %>
 </ul>
 
