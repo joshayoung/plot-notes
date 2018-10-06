@@ -1,8 +1,8 @@
-$color1: #78858F;
-$color2: #E12C26;
-$color3: #0F81DB;
-$color4: #A5A831;
-$color5: #8E8F75;
+$color1: #FDFEFF;
+$color2: #5D9BFF;
+$color3: #B2821D;
+$color4: #2F61B2;
+$color5: #FFCA5D;
 
 ul {
   margin: 0;
@@ -11,7 +11,7 @@ ul {
 
 h1 {
   font-size: 1.5rem;
-  color: #fff;
+  color: #000;
   text-shadow: 1px 1px 1px #000;
 }
 
@@ -30,7 +30,6 @@ fieldset {
 legend {
   padding: 0 1rem 0.2rem 1rem;
   font-style: italic;
-  color: #fff;
 }
 
 label {
@@ -46,6 +45,7 @@ input[type='text'] {
   padding: 0.5rem 1rem;
   border-radius: 3px;
   border: unset;
+  border: 1px solid #ccc;
   display: block;
   min-width: 300px;
   margin-bottom: 4px;
@@ -77,18 +77,12 @@ body {
   max-width: 70rem;
   padding: 0 2rem;
   nav {
-    border-bottom: 1px solid #fff;
-    display: inline-block;
-    margin-bottom: 2rem;
+    margin-bottom: 0.4rem;
+    > a {
+      text-decoration: none;
+    }
     h1 {
-      display: inline-block;
-      font-style: italic;
-      padding-right: 1rem;
-      margin-top: 1rem;
-      margin-bottom: 0;
-      &::after {
-        content: ' - ';
-      }
+      margin: 1rem 0;
     }
     ul {
       list-style-type: none;
@@ -98,14 +92,14 @@ body {
     li {
       display: inline-block;
       a {
-        padding: 0.5rem;
+        padding: 0.2rem 1rem;
         background: $color2;
         color: #fff;
-        margin-right: 0.5rem;
+        margin-right: 0.1rem;
+        font-size: 1rem;
         text-decoration: none;
         border-radius: 2px;
         margin-bottom: 1rem;
-        text-transform: uppercase;
         display: inline-block;
       }
     }
