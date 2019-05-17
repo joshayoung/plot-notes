@@ -1,7 +1,6 @@
 require "rails_helper"
 
 RSpec.feature "Lists", type: :feature do
-
   context "when you visit the show page" do
     before(:each) do
       @list = create(:list)
@@ -23,7 +22,7 @@ RSpec.feature "Lists", type: :feature do
       expect(page).not_to have_text(@note1.title)
       expect(page).not_to have_text(@note2.title)
       expect(page).to have_text(@note3.title)
-      #Need to differentiate between this and the one above (edit/delete):
+      # Need to differentiate between this and the one above (edit/delete):
       expect(page).to have_css("li", text: "Edit")
       expect(page).to have_css("li", text: "Delete")
     end

@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :list_id, exclude: [:new, :create]
+  before_action :list_id, exclude: %i(new create)
 
   def show; end
 
@@ -12,11 +12,13 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     return redirect_to root_url, notice: message if @list.save
+
     render :new
   end
 
   def update
     return redirect_to root_url, notice: message("Updated") if @list.update(list_params)
+
     render :edit
   end
 

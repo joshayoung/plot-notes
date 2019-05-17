@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :list_note_id, exclude: [:new, :create]
+  before_action :list_note_id, exclude: %i(new create)
 
   def show; end
 
@@ -14,11 +14,13 @@ class NotesController < ApplicationController
     @list = list_id
     @note = @list.notes.new(note_params)
     return redirect_to list_path(@list), notice: "Note Saved Successfully" if @note.save
+
     render :new
   end
 
   def update
     return redirect_to list_path(@list), notice: "Note Updated Successfully!" if @note.update(note_params)
+
     render :edit
   end
 
