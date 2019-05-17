@@ -5,10 +5,10 @@
     padding: 0;
   }
   ul {
-    list-style-type: none;
     margin: 0;
     padding: 0;
     margin-left: 10px;
+    display: flex;
     li {
       display: inline-block;
     }
@@ -24,15 +24,27 @@
 }
 .lists {
   list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  li {
+    flex: 1 1 auto;
+    margin: 5px;
+  }
   a {
     display: block;
     box-shadow: 1px 1px 1px #949494;
     text-decoration: none;
     background: $color3;
-    padding: 1rem;
+    padding: 4em 2rem;
+    width: 200px;
+    text-align: center;
     color: #fff;
+    text-transform: uppercase;
+    font-style: italic;
     margin-bottom: 0.5rem;
-    border-left: 4px solid $color4;
+    border-bottom: 4px solid $color4;
+    box-shadow: 1px 1px 7px #000;
     position: relative;
     &:hover {
       background: $color4;
