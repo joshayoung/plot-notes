@@ -47,6 +47,7 @@ group :development, :test do
   gem 'faker'
   gem 'capybara'
   gem 'pry-byebug'
+  gem 'ramsey_cop'
 end
 
 group :development do
