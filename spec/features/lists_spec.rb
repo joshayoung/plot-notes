@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Lists", type: :feature do
 
-  context "show" do
+  context "when you visit the show page" do
     before(:each) do
       @list = create(:list)
       create(:note, list_id: @list.id)
@@ -29,32 +29,32 @@ RSpec.feature "Lists", type: :feature do
     end
   end
 
-  context "new" do
+  context "when you navigate to the new page" do
     it "should display form" do
       visit new_list_path
       expect(page).to have_css("legend", text: "Save New List")
     end
   end
 
-  context "edit" do
+  context "when you edit a list" do
     it "should display form with data" do
       visit edit_list_path(create(:list))
       expect(page).to have_css("legend", text: "Edit List")
     end
   end
 
-  context "creation" do
+  context "when you create a list" do
     before(:each) do
       visit new_list_path
     end
-    it "should fail with message" do
+    it "should fail with message when title is null" do
       within("form") do
         fill_in "list_title", with: nil
       end
       click_button "Create"
       expect(page).to have_content("Title is Required!")
     end
-    it "should save successfully" do
+    it "should save successfully when the title is filled-in" do
       within("form") do
         fill_in "list_title", with: "List"
       end
@@ -63,19 +63,19 @@ RSpec.feature "Lists", type: :feature do
     end
   end
 
-  context "update" do
+  context "when you update a list" do
     before(:each) do
       list = create(:list)
       visit edit_list_path(list)
     end
-    it "should be successful" do
+    it "should update and display success message with a valid title" do
       within("form") do
         fill_in("list_title", with: "First List")
       end
       click_button "Save"
       expect(page).to have_content "List Updated Successfully"
     end
-    it "should fail" do
+    it "should fail when the title is null" do
       within("form") do
         fill_in "list_title", with: nil
       end
@@ -84,8 +84,8 @@ RSpec.feature "Lists", type: :feature do
     end
   end
 
-  context "delete" do
-    it "should be successful" do
+  context "when you delete a list" do
+    it "will decrease the list count by one when you click 'Delete'" do
       visit list_path(create(:list))
       expect { click_link("Delete") }.to change(List, :count).by(-1)
     end

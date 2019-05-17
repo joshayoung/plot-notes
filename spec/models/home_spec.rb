@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Home, type: :model do
-  context "archived_notes method" do
+  context "when calling the archived_notes method" do
     it "returns all archived notes" do
       list = create(:list)
       list2 = create(:list)
@@ -14,7 +14,7 @@ RSpec.describe Home, type: :model do
     end
   end
 
-  context "completed_notes method" do
+  context "when calling the completed_notes method" do
     it "returns all completed notes" do
       list = create(:list)
       list2 = create(:list)
