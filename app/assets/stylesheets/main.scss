@@ -87,20 +87,20 @@ body {
     ul {
       list-style-type: none;
       padding: 0;
-      display: inline-block;
+      display: flex;
+      justify-content: flex-end;
     }
     li {
-      display: inline-block;
       a {
-        padding: 0.2rem 1rem;
-        background: $color2;
-        color: #fff;
-        margin-right: 0.1rem;
         font-size: 1rem;
         text-decoration: none;
-        border-radius: 2px;
-        margin-bottom: 1rem;
+        border-bottom: 1px solid $color4;
         display: inline-block;
+        margin: 0 1rem;
+        &:hover {
+          border-bottom: 1px solid $color3;
+          color: $color3;
+        }
       }
     }
   }
