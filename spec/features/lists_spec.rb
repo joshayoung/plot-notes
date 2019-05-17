@@ -73,8 +73,7 @@ RSpec.feature "Lists", type: :feature do
         fill_in("list_title", with: "First List")
       end
       click_button "Save"
-      #expect(current_path).to eql(lists_path)
-      expect(page).to have_content "List Updated Successfully!"
+      expect(page).to have_content "List Updated Successfully"
     end
     it "should fail" do
       within("form") do
