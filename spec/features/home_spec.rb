@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Home", type: :feature do
-  context "index" do
+  context "when you visit the index page" do
     it "displays the individual lists" do
       list = create(:list)
       list2 = create(:list)

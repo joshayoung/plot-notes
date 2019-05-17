@@ -1,27 +1,27 @@
 require "rails_helper"
 
 RSpec.describe Note, type: :model do
-  context "validation with a list" do
-    it "notes require a title" do
+  context "when validations are executed with a list" do
+    it "does not save with a null title" do
       list = build(:list).save
       note = build(:note, title: nil, list_id: list).save
       expect(note).to eq(false)
     end
-    it "saves with a title" do
+    it "saves with a valid title" do
       list = build(:list).save
       note = build(:note, list_id: list).save
       expect(note).to eq(true)
     end
   end
-  context "validation without a list" do
+  context "when validations are executed without a list" do
     it "does not save" do
       note = build(:note).save
       expect(note).to eq(false)
     end
   end
 
-  context "archived method" do
-    it "only returns archived notes" do
+  context "when the archived method is called" do
+    it "returns only archived notes" do
       list = create(:list)
       note1 = create(:note, list_id: list.id, archived: true)
       create(:note, list_id: list.id, archived: false)
@@ -30,8 +30,8 @@ RSpec.describe Note, type: :model do
     end
   end
 
-  context "completed method" do
-    it "only returns completed notes" do
+  context "when the completed method is called" do
+    it "returns only completed notes" do
       list = create(:list)
       note1 = create(:note, list_id: list.id, completed: true)
       create(:note, list_id: list.id, completed: false)
@@ -40,8 +40,8 @@ RSpec.describe Note, type: :model do
     end
   end
 
-  context "active method" do
-    it "only returns active notes" do
+  context "when the active method is called" do
+    it "returns only active notes" do
       list = create(:list)
       create(:note, list_id: list.id, completed: true)
       create(:note, list_id: list.id, archived: true)
