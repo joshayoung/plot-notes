@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe NotesController, type: :controller do
   context "GET #show" do
