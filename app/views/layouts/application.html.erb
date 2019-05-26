@@ -18,7 +18,9 @@
       </nav>
       <div class='content'>
         <%= yield %>
+        <button id="show_timer">Show Timer</button>
       </div>
     </div>
+    <%= javascript_pack_tag "load" %>
   </body>
 </html>
