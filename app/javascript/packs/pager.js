@@ -21,7 +21,10 @@ export default class Pager {
   }
 
   setBackground() {
-    document.querySelector(".lists li a").style.backgroundColor = "#cccccc";
+    let background = document.querySelector(".lists li a")
+    if (background !== null) {
+      background.style.backgroundColor = "#cccccc";
+    }
   }
 
   getQuotes() {
