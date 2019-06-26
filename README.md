@@ -36,4 +36,6 @@
 `rails g rspec:feature notes`
 
 ##### To Do:
-*
+* Clean up the styling for 'Edit/Delete List'
+* Make the 'Add Note' button a plus sign somehwere on the page.
+* Add tagging ability for each note.
