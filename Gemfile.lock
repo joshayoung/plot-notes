@@ -270,6 +270,7 @@ DEPENDENCIES
   rails (~> 5.2.0)
   ramsey_cop
   rspec-rails (~> 3.7)
+  rubocop-performance
   sass-rails (~> 5.0)
   simple_form
   spring
