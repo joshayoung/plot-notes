@@ -1,5 +1,6 @@
 .list {
   display: flex;
+  justify-content: space-between;
   h2 {
     margin: 0;
     padding: 0;
@@ -14,11 +15,12 @@
     }
     a {
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: 2px;
       background: $color3;
       color: #fff;
-      padding: 5px 10px;
+      padding: 2px 5px;
       display: block;
+      margin-left: 10px;
     }
   }
 }
@@ -27,6 +29,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  flex-direction: column;
   li {
     flex: 1 1 auto;
     margin: 5px;
@@ -36,15 +39,13 @@
     box-shadow: 1px 1px 1px #949494;
     text-decoration: none;
     background: $color3;
-    padding: 4em 2rem;
-    width: 200px;
+    padding: 1rem;
     text-align: center;
     color: #fff;
     text-transform: uppercase;
     font-style: italic;
-    margin-bottom: 0.5rem;
-    border-bottom: 4px solid $color4;
-    box-shadow: 1px 1px 7px #000;
+    margin-bottom: 0.2rem;
+    border-bottom: 2px solid $color2;
     position: relative;
     &:hover {
       background: $color4;

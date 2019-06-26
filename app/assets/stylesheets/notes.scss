@@ -7,9 +7,8 @@ ul.notes {
     div {
       display: flex;
       align-items: center;
-      margin: 2px 0;
-      margin-bottom: 10px;
       flex-wrap: wrap;
+      justify-content: space-between;
       > * {
         padding: 2px 7px;
         flex: 0 1 auto;
@@ -23,15 +22,12 @@ ul.notes {
         flex-basis: 300px;
       }
       a:not(:first-child) {
-        border-radius: 4px;
+        border-radius: 2px;
         background: $color2;
-        padding: 4px;
         color: #fff;
-        min-width: 50px;
         text-align: center;
-        flex-basis: 30px;
+        flex-basis: 44px;
         font-size: 10px;
-        margin: 0 10px;
         text-decoration: none;
         &.archive,
         &.complete {

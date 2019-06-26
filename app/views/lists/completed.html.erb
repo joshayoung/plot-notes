@@ -6,6 +6,6 @@
 </ul>
 
 <% content_for(:navigation) do %>
-  <li><%= link_to "Archived Notes", archived_list_path(@list) %></li>
-  <li><%= link_to "Completed Notes", completed_list_path(@list) %></li>
+  <li><%= link_to "Archived", archived_list_path(@list) %></li>
+  <li><%= link_to "Completed", completed_list_path(@list) %></li>
 <% end %>
