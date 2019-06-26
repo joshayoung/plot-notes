@@ -4,29 +4,23 @@ ul.notes {
   li {
     border: 1px solid $color3;
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
     div {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: space-between;
       > * {
         padding: 2px 7px;
-        flex: 0 1 auto;
-      }
-      span {
-        flex-basis: 300px;
       }
       p {
         margin: 0;
         margin-bottom: 10px;
-        flex-basis: 300px;
       }
-      a:not(:first-child) {
+    }
+    div:nth-child(2) {
+      a {
         border-radius: 2px;
         background: $color2;
         color: #fff;
         text-align: center;
-        flex-basis: 44px;
         font-size: 10px;
         text-decoration: none;
         &.archive,
