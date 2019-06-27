@@ -1,8 +1,8 @@
 <%= render "shared/flash" %>
 <div class='list'>
+  <%= link_to "&#43;".html_safe, new_list_note_path(@list), class: 'add-new-note' %>
   <h2><%= @list.title %></h2>
   <ul>
-    <li><%= link_to "Add Note", new_list_note_path(@list) %></li>
     <li><%= link_to "Edit List", edit_list_path(@list) %></li>
     <li><%= link_to "Delete List", @list, method: :delete, data: { confirm: "Click 'OK' to remove." } %></li>
   </ul>

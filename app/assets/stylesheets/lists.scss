@@ -8,7 +8,7 @@
   ul {
     margin: 0;
     padding: 0;
-    margin-left: 10px;
+    margin-left: auto;
     display: flex;
     li {
       display: inline-block;
@@ -24,6 +24,36 @@
     }
   }
 }
+
+.add-new-note {
+  font-weight: 600;
+  font-size: 28px;
+  text-decoration: none;
+  color: $color2;
+  position: relative;
+  top: -5px;
+  margin-right: 10px;
+  position: relative;
+  &:hover {
+    color: $color3;
+    &:after {
+      content: "Add Note";
+      border-radius: 2px;
+      text-align: center;
+      background: $color3;
+      color: #fff;
+      font-size: 14px;
+      padding-left: 4px;
+      position: relative;
+      top: -1px;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      width: 80px;
+    }
+  }
+}
+
 .lists {
   list-style-type: none;
   display: flex;

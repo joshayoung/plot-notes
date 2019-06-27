@@ -10,9 +10,9 @@ RSpec.feature "Lists", type: :feature do
       @note3 = create(:note, title: "three", list_id: @list.id)
       visit list_path(@list)
     end
-    it "displays list title with 'New Note' link" do
+    it "displays list title with 'plus' link" do
       expect(page).to have_content @list.title
-      expect(page).to have_content "Add Note"
+      expect(page).to have_content "+"
     end
     it "displays links to edit and delete the list" do
       expect(page).to have_content "Edit"
