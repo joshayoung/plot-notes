@@ -36,5 +36,5 @@
 `rails g rspec:feature notes`
 
 ##### To Do:
-* Clean up the styling for 'Edit/Delete List'
 * Add tagging ability for each note.
+* Add stylelint to pre-commit hook.
