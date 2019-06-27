@@ -12,7 +12,7 @@ RSpec.feature "Lists", type: :feature do
     end
     it "displays list title with 'New Note' link" do
       expect(page).to have_content @list.title
-      expect(page).to have_content "New Note"
+      expect(page).to have_content "Add Note"
     end
     it "displays links to edit and delete the list" do
       expect(page).to have_content "Edit"
