@@ -1,18 +1,31 @@
+ul {
+  a {
+    text-decoration: none;
+    border-radius: 2px;
+    display: block;
+    margin-left: 10px;
+  }
+}
+
 .list {
   display: flex;
   justify-content: space-between;
+
   h2 {
     margin: 0;
     padding: 0;
   }
+
   ul {
     margin: 0;
     padding: 0;
     margin-left: auto;
     display: flex;
+
     li {
       display: inline-block;
     }
+
     a {
       text-decoration: none;
       border-radius: 2px;
@@ -25,45 +38,18 @@
   }
 }
 
-.add-new-note {
-  font-weight: 600;
-  font-size: 28px;
-  text-decoration: none;
-  color: $color2;
-  position: relative;
-  top: -5px;
-  margin-right: 10px;
-  position: relative;
-  &:hover {
-    color: $color3;
-    &:after {
-      content: "Add Note";
-      border-radius: 2px;
-      text-align: center;
-      background: $color3;
-      color: #fff;
-      font-size: 14px;
-      padding-left: 4px;
-      position: relative;
-      top: -1px;
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      width: 80px;
-    }
-  }
-}
-
 .lists {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: column;
+
   li {
     flex: 1 1 auto;
     margin: 5px;
   }
+
   a {
     display: block;
     box-shadow: 1px 1px 1px #949494;
@@ -77,17 +63,21 @@
     margin-bottom: 0.2rem;
     border-bottom: 2px solid $color2;
     position: relative;
+
     &:hover {
       background: $color4;
     }
   }
+
   li:last-child a {
     margin-bottom: 0;
   }
+
   .counts {
     position: absolute;
     bottom: 0;
     right: 0;
+
     .inner {
       display: inline-block;
       font-size: 0.8rem;
@@ -95,6 +85,34 @@
       border-left: 1px solid #ccc;
       padding: 0.2rem;
       background: $color2;
+    }
+  }
+}
+
+.add-new-note {
+  font-weight: 600;
+  font-size: 28px;
+  text-decoration: none;
+  color: $color2;
+  position: relative;
+  top: -5px;
+  margin-right: 10px;
+
+  &:hover {
+    color: $color3;
+
+    &::after {
+      content: "Add Note";
+      border-radius: 2px;
+      text-align: center;
+      background: $color3;
+      color: #fff;
+      font-size: 14px;
+      padding-left: 4px;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      width: 80px;
     }
   }
 }

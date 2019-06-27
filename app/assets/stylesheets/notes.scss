@@ -1,6 +1,7 @@
 ul.notes {
   list-style-type: none;
   margin-top: 10px;
+
   li {
     border-top: 1px solid $color3;
     display: flex;
@@ -8,17 +9,21 @@ ul.notes {
     background: #e6e6e6;
     padding-top: 2px;
     justify-content: space-between;
+
     div {
       > * {
         padding: 2px 7px;
       }
+
       p {
         margin: 0;
       }
     }
+
     div:nth-child(1) {
       padding-top: 4px;
     }
+
     div:nth-child(2) {
       a {
         border-radius: 2px;
@@ -27,6 +32,7 @@ ul.notes {
         text-align: center;
         font-size: 10px;
         text-decoration: none;
+
         &.archive,
         &.complete {
           background: $color4;
