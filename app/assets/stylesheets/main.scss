@@ -4,11 +4,11 @@
 // $color4: #2F61B2;
 // $color5: #FFCA5D;
 
-$color1: #C7CEFF;
-$color2: #3D4680;
-$color3: #7B8DFF;
+$color1: #c7ceff;
+$color2: #3d4680;
+$color3: #7b8dff;
 $color4: #636780;
-$color5: #6270CC;
+$color5: #6270cc;
 
 ul {
   margin: 0;
@@ -24,6 +24,7 @@ h1 {
 ul.errors {
   list-style-type: none;
   margin: 1rem;
+
   li {
     color: $color2;
   }
@@ -41,6 +42,7 @@ legend {
 label {
   display: block;
   color: #fff;
+
   &::after {
     content: ': ';
   }
@@ -63,13 +65,15 @@ input[type='submit'] {
   color: #fff;
   border: unset;
   padding: 0.5rem 1rem;
+
   &:hover {
     background: $color4;
     cursor: pointer;
   }
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -82,23 +86,28 @@ body {
   margin: 0 auto;
   max-width: 70rem;
   padding: 0 2rem;
+
   nav {
     display: flex;
     justify-content: space-between;
     margin: 1rem 0;
     align-items: flex-end;
+
     > a {
       text-decoration: none;
     }
+
     h1 {
       margin: 0;
     }
+
     ul {
       list-style-type: none;
       padding: 0;
       display: flex;
       justify-content: flex-end;
     }
+
     li {
       a {
         font-size: 1rem;
@@ -106,6 +115,7 @@ body {
         border-bottom: 1px solid $color4;
         display: inline-block;
         margin: 0 0.25rem;
+
         &:hover {
           border-bottom: 1px solid $color3;
           color: $color3;
