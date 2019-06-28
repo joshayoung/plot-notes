@@ -18,11 +18,14 @@ RSpec.feature "Lists", type: :feature do
       expect(page).to have_content "Edit"
       expect(page).to have_content "Delete"
     end
+    it "displays a tag button" do
+      expect(page).to have_content "Tag"
+    end
     it "only displays active notes for each list" do
       expect(page).not_to have_text(@note1.title)
       expect(page).not_to have_text(@note2.title)
       expect(page).to have_text(@note3.title)
-      # Need to differentiate between this and the one above (edit/delete):
+      # TODO: Need to differentiate between this and the one above (edit/delete):
       expect(page).to have_css("li", text: "Edit")
       expect(page).to have_css("li", text: "Delete")
     end
