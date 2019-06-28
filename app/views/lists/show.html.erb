@@ -21,6 +21,9 @@
           <%= link_to("Delete", list_note_path(@list, n), method: :delete, data: { confirm: "Ok?" }) %>
           <%= link_to("Archive", archive_list_note_path(@list, n), method: :post, data: { confirm: "Ok?" }, class: 'archive') %>
           <%= link_to("Complete", complete_list_note_path(@list, n), method: :post, data: { confirm: "Ok?" }, class: 'complete') %>
+          <% if(ENV["SHOW_TAG_BUTTON"]) %>
+            <%= link_to("Tag", edit_list_note_path(@list, n)) %>
+          <% end %>
         </div>
       </li>
     <% end %>
