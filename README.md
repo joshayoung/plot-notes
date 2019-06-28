@@ -38,4 +38,6 @@
 ##### To Do:
 * Add tagging ability for each note.
 * Add stylelint to pre-commit hook.
-* Add guard
+
+##### Start Guard:
+`bundle exec guard`
