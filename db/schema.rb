@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_08_182600) do
+ActiveRecord::Schema.define(version: 2019_06_28_005829) do
 
   create_table "lists", force: :cascade do |t|
     t.string "title"
@@ -26,7 +26,16 @@ ActiveRecord::Schema.define(version: 2018_07_08_182600) do
     t.datetime "updated_at", null: false
     t.boolean "completed", default: false
     t.boolean "archived", default: false
+    t.string "screenshot"
     t.index ["list_id"], name: "index_notes_on_list_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "title"
+    t.integer "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_tags_on_note_id"
   end
 
 end

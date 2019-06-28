@@ -14,11 +14,9 @@ RSpec.feature "Lists", type: :feature do
       expect(page).to have_content @list.title
       expect(page).to have_content "+"
     end
-    it "displays links to edit and delete the list" do
+    it "displays links to 'edit', 'delete', and 'tag'" do
       expect(page).to have_content "Edit"
       expect(page).to have_content "Delete"
-    end
-    it "displays a tag button" do
       expect(page).to have_content "Tag"
     end
     it "only displays active notes for each list" do
@@ -28,6 +26,20 @@ RSpec.feature "Lists", type: :feature do
       # TODO: Need to differentiate between this and the one above (edit/delete):
       expect(page).to have_css("li", text: "Edit")
       expect(page).to have_css("li", text: "Delete")
+    end
+  end
+
+  context "when you click the 'tag' button" do
+    before(:each) do
+      @list = create(:list)
+      create(:note, list_id: @list.id)
+      @note1 = create(:note, title: "one", list_id: @list.id, completed: true)
+      visit list_path(@list)
+    end
+    it "opens a form with tagging options" do
+      click_link("Tag")
+
+      expect(page).to have_content("Tag Note")
     end
   end
 
