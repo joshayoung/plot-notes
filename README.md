@@ -35,6 +35,12 @@
 ##### Add Notes feature spec:
 `rails g rspec:feature notes`
 
+##### Add Tag association:
+`rails g model tag title:string note:references`
+
+##### Create the tags controller:
+`rails g controller tags`
+
 ##### To Do:
 * Add tagging ability for each note.
 * Add stylelint to pre-commit hook.

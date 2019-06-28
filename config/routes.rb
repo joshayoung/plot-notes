@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get "completed-notes"
     end
     resources :notes do
+      resources :tags
       post :archive, on: :member
       post :complete, on: :member
     end

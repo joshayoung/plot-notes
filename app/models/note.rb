@@ -1,5 +1,6 @@
 class Note < ApplicationRecord
   belongs_to :list
+  has_many :tags, dependent: :destroy
 
   validates :title, presence: { message: "Title is Required!" },
                     length: { maximum: 20 }
