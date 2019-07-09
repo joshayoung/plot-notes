@@ -1,1 +1,9 @@
-Tag Note
+
+Add New Tag
+<%= form_for [@list, @note, @tag] do |f| %>
+  <fieldset>
+    <legend>Save New Tag</legend>
+    <%= f.text_field :title %>
+    <%= f.submit "Save New Tag" %>
+  </fieldset>
+<% end %>

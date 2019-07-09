@@ -39,7 +39,7 @@ RSpec.feature "Lists", type: :feature do
     it "opens a form with tagging options" do
       click_link("Tag")
 
-      expect(page).to have_content("Tag Note")
+      expect(page).to have_content("Add New Tag")
     end
   end
 
