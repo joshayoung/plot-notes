@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2019_06_28_005829) do
     t.datetime "updated_at", null: false
     t.boolean "completed", default: false
     t.boolean "archived", default: false
-    t.string "screenshot"
     t.index ["list_id"], name: "index_notes_on_list_id"
   end
 
