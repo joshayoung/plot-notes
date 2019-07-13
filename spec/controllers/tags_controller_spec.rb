@@ -16,7 +16,7 @@ RSpec.describe TagsController, type: :controller do
       list = create(:list)
       note = create(:note, list: list)
 
-      post :create, params: { list_id: note.list_id, note_id: note.id, tag_title: "programming" }
+      post :create, params: { tag: { title: "programming" }, list_id: note.list_id, note_id: note.id }
 
       expect(response).to redirect_to(list_note_url(list, note))
       expect(flash[:notice]).to eq("You have successfully added a new tag")

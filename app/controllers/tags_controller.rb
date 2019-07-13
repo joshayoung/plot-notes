@@ -7,7 +7,7 @@ class TagsController < ApplicationController
 
   def create
     @note = Note.find(params[:note_id])
-    @tag = @note.tags.new
+    @tag = @note.tags.new(tag_title)
     redirect_to note_page, notice: t(".success") if @tag.save
   end
 
@@ -15,5 +15,9 @@ class TagsController < ApplicationController
     @list = List.find(params[:list_id])
     @note = Note.find(params[:note_id])
     list_note_url(@list, @note)
+  end
+
+  def tag_title
+    params.require(:tag).permit(:title)
   end
 end
