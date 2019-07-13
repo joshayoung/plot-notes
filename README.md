@@ -3,7 +3,8 @@
 ### Note List App.
 
 ##### To Do:
-* Add tagging ability for each note.
+* Add a search feature for the tags.
+* Style the tag list.
 * Add stylelint to pre-commit hook.
 
 ### Setup:
