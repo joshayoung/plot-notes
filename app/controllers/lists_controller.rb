@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :list_id, exclude: %i(new create)
+  before_action :list_id, exclude: %i(new create tags)
 
   def show; end
 
@@ -43,5 +43,9 @@ private
 
   def list_id
     @list = List.find_by(id: params[:id])
+  end
+
+  def tags
+    @tags = @list.notes(params[:note_id]).tags
   end
 end
