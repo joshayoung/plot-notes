@@ -8,7 +8,7 @@ class TagsController < ApplicationController
   def create
     @list = List.find(params[:list_id])
     @note = Note.find(params[:note_id])
-    flash[:notice] = "You have successfully added a new tag"
-    redirect_to list_note_url(@list, @note)
+    @tag = @note.tags.new
+    redirect_to list_note_url(@list, @note), notice: "You have successfully added a new tag" if @tag.save
   end
 end
