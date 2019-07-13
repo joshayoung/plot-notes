@@ -8,6 +8,12 @@ RSpec.feature "Lists", type: :feature do
       @note1 = create(:note, title: "one", list_id: @list.id, completed: true)
       @note2 = create(:note, title: "two", list_id: @list.id, archived: true)
       @note3 = create(:note, title: "three", list_id: @list.id)
+      @note4 = create(:note, title: "four", list_id: @list.id)
+
+      create(:tag, title: "miscellaneous", note_id: @note3.id)
+      create(:tag, title: "todo", note_id: @note3.id)
+      create(:tag, title: "programming", note_id: @note4.id)
+
       visit list_path(@list)
     end
     it "displays list title with 'plus' link" do
@@ -18,6 +24,10 @@ RSpec.feature "Lists", type: :feature do
       expect(page).to have_content "Edit"
       expect(page).to have_content "Delete"
       expect(page).to have_content "Tag"
+    end
+    it "will display a list of tags for each note" do
+      expect(page).to have_content("Tags: miscellaneous todo")
+      expect(page).to have_content("Tags: programming")
     end
     it "only displays active notes for each list" do
       expect(page).not_to have_text(@note1.title)
