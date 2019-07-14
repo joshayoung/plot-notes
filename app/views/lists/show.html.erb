@@ -15,14 +15,14 @@
         <div>
           <span><%= link_to(n.title, list_note_path(@list, n)) %></span>
           <p><%= n.details %></p>
-          <div>
+          <ul class='tags'>
             <% if n.tags.any? %>
-              <span>Tags: </span>
               <% n.tags.each do |t| %>
-                <span><%= t.title %></span>
+                <li><a href=''><%= t.title %></a></li>
+                <li class='divider'>&middot;</li>
               <% end %>
             <% end %>
-          </div>
+          </ul>
         </div>
         <div>
           <%= link_to("Edit", edit_list_note_path(@list, n)) %>
