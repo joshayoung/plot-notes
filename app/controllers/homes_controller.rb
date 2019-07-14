@@ -10,4 +10,6 @@ class HomesController < ApplicationController
   def completed_notes
     @completed_notes = Home.completed_notes
   end
+
+  def search; end
 end
