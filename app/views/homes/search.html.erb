@@ -1,1 +1,8 @@
 <h1>Search</h1>
+
+<%= form_for :search do |f| %>
+  <fieldset>
+    <%= f.text_field :value %>
+    <%= f.submit "Search" %>
+  </fieldset>
+<% end %>

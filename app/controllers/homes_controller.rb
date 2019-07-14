@@ -12,4 +12,10 @@ class HomesController < ApplicationController
   end
 
   def search; end
+
+  def results; end
+
+  def search_results
+    redirect_to results_url
+  end
 end
