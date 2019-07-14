@@ -26,8 +26,8 @@ RSpec.feature "Lists", type: :feature do
       expect(page).to have_content "Tag"
     end
     it "will display a list of tags for each note" do
-      expect(page).to have_content("Tags: miscellaneous todo")
-      expect(page).to have_content("Tags: programming")
+      expect(page).to have_content("miscellaneous · todo")
+      expect(page).to have_content("programming")
     end
     it "only displays active notes for each list" do
       expect(page).not_to have_text(@note1.title)

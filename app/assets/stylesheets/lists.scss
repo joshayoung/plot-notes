@@ -89,6 +89,31 @@ ul {
   }
 }
 
+.tags {
+  list-style-type: none;
+  border-top: 1px solid $color3;
+  margin-top: 20px;
+  li.divider:last-child {
+    display: none;
+  }
+  li {
+    display: inline-block;
+    &.divider {
+      position: relative;
+      top: 2px;
+    }
+  }
+  a {
+    font-size: 12px;
+    display: block;
+    color: $color2;
+    margin-left: 0;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 .add-new-note {
   font-weight: 600;
   font-size: 28px;
