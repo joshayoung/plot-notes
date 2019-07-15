@@ -16,6 +16,14 @@ class HomesController < ApplicationController
   def results; end
 
   def search_results
-    redirect_to results_url
+    @tags = Tag.joins(:note).where("tags.title = ?", search_value)
+    @notes = Note.joins(:tags).where("tags.title = ?", search_value)
+    render :results
+  end
+
+private
+
+  def search_value
+    params.require(:search).permit(:value)[:value]
   end
 end
