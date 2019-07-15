@@ -9,16 +9,26 @@ RSpec.feature "Search", type: :feature do
     end
   end
 
-  context "when filling out the search form" do
-    it "searches successfully" do
+  context "after submitting the search form" do
+    it "displays the results on the following page" do
+      list = create(:list)
+      note1 = create(:note, title: "test1", list_id: list.id)
+      note2 = create(:note, title: "test2", list_id: list.id)
+      note3 = create(:note, title: "test3", list_id: list.id)
+      create(:tag, title: "todo", note_id: note1.id)
+      create(:tag, title: "todo", note_id: note2.id)
+      create(:tag, title: "programming", note_id: note3.id)
+
       visit search_path
 
       within("form") do
-        fill_in "search_value", with: "test"
+        fill_in "search_value", with: "todo"
       end
       click_button "Search"
 
-      expect(page).to have_content "Search Results"
+      expect(page).to have_content "test1"
+      expect(page).to have_content "test2"
+      expect(page).to_not have_content "test3"
     end
   end
 end
