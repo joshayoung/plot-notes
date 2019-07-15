@@ -5,7 +5,6 @@
 ##### To Do:
 * Style the tag list.
 * Add stylelint to pre-commit hook.
-* Add simplecov gem
 
 ### Setup:
 * Clone the repo
