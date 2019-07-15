@@ -15,6 +15,11 @@ class HomesController < ApplicationController
 
   def results; end
 
+  def tags
+    @notes = Note.joins(:tags).where("tags.title = ?", search_value)
+    render :results
+  end
+
   def search_results
     @tags = Tag.joins(:note).where("tags.title = ?", search_value)
     @notes = Note.joins(:tags).where("tags.title = ?", search_value)
@@ -24,6 +29,14 @@ class HomesController < ApplicationController
 private
 
   def search_value
-    params.require(:search).permit(:value)[:value]
+    tag[:tag] || query[:value]
+  end
+
+  def tag
+    params.permit(:tag)
+  end
+
+  def query
+    params.require(:search).permit(:value)
   end
 end

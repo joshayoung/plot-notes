@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "homes#index"
   get "archived-notes", to: "homes#archived_notes"
   get "completed-notes", to: "homes#completed_notes"
+  get "tags/:tag", to: "homes#tags", as: "tags"
 
   get "search", to: "homes#search"
   get "results", to: "homes#results"

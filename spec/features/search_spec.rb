@@ -9,8 +9,8 @@ RSpec.feature "Search", type: :feature do
     end
   end
 
-  context "after submitting the search form" do
-    it "displays the results on the following page" do
+  context "the search results page" do
+    before(:each) do
       list = create(:list)
       note1 = create(:note, title: "test1", list_id: list.id)
       note2 = create(:note, title: "test2", list_id: list.id)
@@ -18,13 +18,23 @@ RSpec.feature "Search", type: :feature do
       create(:tag, title: "todo", note_id: note1.id)
       create(:tag, title: "todo", note_id: note2.id)
       create(:tag, title: "programming", note_id: note3.id)
+    end
 
+    it "displays the results after filling out the search form" do
       visit search_path
 
       within("form") do
         fill_in "search_value", with: "todo"
       end
       click_button "Search"
+
+      expect(page).to have_content "test1"
+      expect(page).to have_content "test2"
+      expect(page).to_not have_content "test3"
+    end
+
+    it "displays the result after visiting the tags route" do
+      visit tags_path(tag: "todo")
 
       expect(page).to have_content "test1"
       expect(page).to have_content "test2"

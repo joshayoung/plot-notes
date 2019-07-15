@@ -18,7 +18,9 @@
           <ul class='tags'>
             <% if n.tags.any? %>
               <% n.tags.each do |t| %>
-                <li><a href=''><%= t.title %></a></li>
+                <li>
+                  <%= link_to t.title, tags_path(tag: t.title) %>
+                </li>
                 <li class='divider'>&middot;</li>
               <% end %>
             <% end %>
