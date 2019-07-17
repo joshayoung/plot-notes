@@ -23,7 +23,10 @@ class HomesController < ApplicationController
   def search_results
     @tags = Tag.joins(:note).where("tags.title = ?", search_value)
     @notes = Note.joins(:tags).where("tags.title = ?", search_value)
-    render :results
+    respond_to do |format|
+      format.html { render :results }
+      format.json { render(json: @notes.to_json) }
+    end
   end
 
 private
