@@ -3,8 +3,11 @@
 ### Note List App.
 
 ##### To Do:
-* Style the tag list.
 * Add stylelint to pre-commit hook.
+* Add Jest for JavaScript unit testing.
+* Swap axios for something with a smaller footprint.
+* Clean up the ajax search results.
+* Clean up and remove unnecessary JavaScript.
 
 ### Setup:
 * Clone the repo
