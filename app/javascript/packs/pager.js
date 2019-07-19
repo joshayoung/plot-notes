@@ -1,11 +1,11 @@
 import Interval from './interval';
-import axios from "axios";
+import { fetch } from 'whatwg-fetch';
 
 export default class Pager {
   constructor() {
     this.interval = new Interval();
     this.setupOnclick();
-    this.interval.timer();
+    // this.interval.timer();
   }
 
   setupOnclick() {
@@ -28,12 +28,14 @@ export default class Pager {
   }
 
   getQuotes() {
-    axios.get('https://api.adviceslip.com/advice')
-      .then((response) => {
-        this.setQuote(response.data.slip.advice);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    let self = this;
+    fetch('https://api.adviceslip.com/advice')
+    .then(function(response) {
+      return response.json()
+    }).then(function(data) {
+      self.setQuote(data.slip.advice);
+    }).catch(function(error) {
+      console.log('error', error)
+    });
   }
 }

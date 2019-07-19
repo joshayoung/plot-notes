@@ -1,4 +1,5 @@
-import axios from "axios";
+
+import { fetch } from 'whatwg-fetch';
 
 export default class Search {
   constructor(search_div = null) {
@@ -7,18 +8,21 @@ export default class Search {
 
   notesWithTag(tag) {
     let self = this;
-    axios({
-      method: 'post',
-      url: '/search.json',
-      data: { tag: tag },
-      responseType: 'json',
-      headers: { 'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content }
-    })
-    .then(function(response) {
-      self.search_div.innerHTML = response.data;
-    })
-    .catch(function(error) {
-      console.log(error);
+    fetch('/search.json', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content
+      },
+      body: JSON.stringify({
+        tag: tag
+      })
+    }).then(function(response) {
+      return response.json();
+    }).then(function(data) {
+      self.search_div.innerHTML = data;
+    }).catch(function(ex) {
+      console.log('parsing failed', ex)
     });
   }
 }
