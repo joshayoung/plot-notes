@@ -13,7 +13,13 @@
     "jest": "^24.8.0",
     "webpack-dev-server": "^3.4.1"
   },
+  "jest": {
+    "roots": [
+      "spec/javascripts"
+    ]
+  },
   "scripts": {
-    "stylelint": "stylelint '**/*.scss'"
+    "stylelint": "stylelint '**/*.scss'",
+    "test": "jest"
   }
 }

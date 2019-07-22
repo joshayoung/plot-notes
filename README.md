@@ -4,7 +4,6 @@
 
 ##### To Do:
 * Add stylelint to pre-commit hook.
-* Add Jest for JavaScript unit testing.
 * Clean up the ajax search results.
 * Clean up and remove unnecessary JavaScript.
 
