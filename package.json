@@ -10,6 +10,7 @@
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
+    "jest": "^24.8.0",
     "webpack-dev-server": "^3.4.1"
   },
   "scripts": {
