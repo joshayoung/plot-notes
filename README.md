@@ -3,9 +3,9 @@
 ### Note List App.
 
 ##### To Do:
-* Add stylelint to pre-commit hook.
 * Clean up the ajax search results.
 * Clean up and remove unnecessary JavaScript.
+* Remove npx install commit (installed by default in npm)
 
 ### Setup:
 * Clone the repo
