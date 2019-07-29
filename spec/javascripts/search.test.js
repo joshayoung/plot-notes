@@ -1,6 +1,4 @@
 import Search from '../../app/javascript/packs/search';
-import { fetch } from 'whatwg-fetch';
-
 describe("Search", () => {
   let search = null;
 
@@ -8,8 +6,10 @@ describe("Search", () => {
 
   describe("#notesWithTag", () => {
     it('should post to the correct endpoint', () => {
+      console.log(fetch);
+      fetch.mockResponse(() => notesWithTag().then(res => ({body: res}));
+
       search = new Search();
-      jest.mock('fetch');
 
       let notes = search.notesWithTag("something");
 
