@@ -6,6 +6,9 @@
 * Clean up the ajax search results.
 * Clean up and remove unnecessary JavaScript.
 * Remove npx install commit (installed by default in npm)
+* Add lint-staged
+  * Set it to run your linters: eslint, rubocop.
+* Configure prettier
 
 ### Setup:
 * Clone the repo
