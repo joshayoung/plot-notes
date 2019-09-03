@@ -14,7 +14,9 @@
   "devDependencies": {
     "eslint": "^6.1.0",
     "eslint-config-google": "^0.13.0",
+    "husky": ">=1",
     "jest": "^24.8.0",
+    "lint-staged": ">=8",
     "prettier": "1.18.2",
     "webpack-dev-server": "^3.4.1"
   },
@@ -30,5 +32,20 @@
   "scripts": {
     "stylelint": "stylelint '**/*.scss'",
     "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
