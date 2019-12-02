@@ -2,28 +2,20 @@
 
 ### Note List App.
 
-##### To Do:
-
-- Clean up the ajax search results.
-- Clean up and remove unnecessary JavaScript.
-- Remove npx install commit (installed by default in npm).
-- Finish configuring lint-staged and husky (https://prettier.io/docs/en/precommit.html).
-  - Set it to run your linters: eslint, rubocop, and prettier.
-
 ### Setup:
 
-- Clone the repo
-- Create `.env` files at the root of this project:
-  - .env
-  - .env.development
-  - .env.test
-  - Add `SHOW_TAG_BUTTON=true` to both the 'test' and 'development' versions.
-    - Set this value to `false` in the 'production' (.env file) version.
-    - _Note:_ You have to restart your server after adding these files.
+-   Clone the repo
+-   Create `.env` files at the root of this project:
+    -   .env
+    -   .env.development
+    -   .env.test
+    -   Add `SHOW_TAG_BUTTON=true` to both the 'test' and 'development' versions.
+        -   Set this value to `false` in the 'production' (.env file) version.
+        -   _Note:_ You have to restart your server after adding these files.
 
 ### Additional Tool Instructions:
 
-- Start Guard: `bundle exec guard`
+-   Start Guard: `bundle exec guard`
 
 ### Steps Used in setting up this project:
 
@@ -37,9 +29,9 @@
 
 ##### Setup rspec:
 
-- Add to gemfile: `gem 'rspec-rails', '~> 3.7'`
-- Run `bundle install`
-- Run: `rails generate rspec:install`
+-   Add to gemfile: `gem 'rspec-rails', '~> 3.7'`
+-   Run `bundle install`
+-   Run: `rails generate rspec:install`
 
 ##### Create rspec model test file:
 
@@ -55,7 +47,7 @@
 
 ##### Added other gems:
 
-- Look at GemFile
+-   Look at GemFile
 
 ##### Add Note association:
 
