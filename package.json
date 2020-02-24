@@ -1,51 +1,53 @@
 {
-  "name": "plot-notes",
-  "private": true,
-  "dependencies": {
-    "@rails/webpacker": "^4.0.2",
-    "jest-fetch-mock": "^2.1.2",
-    "lodash": "4.17.13",
-    "lodash.template": "^4.5.0",
-    "npx": "^10.2.0",
-    "stylelint": "^10.1.0",
-    "stylelint-config-standard": "^18.3.0",
-    "whatwg-fetch": "^3.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^6.3.0",
-    "eslint-config-google": "^0.13.0",
-    "husky": ">=1",
-    "jest": "^24.8.0",
-    "lint-staged": ">=8",
-    "prettier": "1.18.2",
-    "webpack-dev-server": "^3.4.1"
-  },
-  "jest": {
-    "automock": false,
-    "setupFiles": [
-      "./spec/javascripts/test_setup.js"
-    ],
-    "roots": [
-      "spec/javascripts"
-    ]
-  },
-  "scripts": {
-    "stylelint": "stylelint '**/*.scss'",
-    "test": "jest"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
+    "name": "plot-notes",
+    "private": true,
+    "dependencies": {
+        "@rails/webpacker": "^4.0.2",
+        "cryptiles": "4.1.2",
+        "hoek": "4.2.1",
+        "jest-fetch-mock": "^2.1.2",
+        "lodash": "4.17.13",
+        "lodash.template": "^4.5.0",
+        "npx": "^10.2.0",
+        "stylelint": "^10.1.0",
+        "stylelint-config-standard": "^18.3.0",
+        "whatwg-fetch": "^3.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^6.3.0",
+        "eslint-config-google": "^0.13.0",
+        "husky": ">=1",
+        "jest": "^24.8.0",
+        "lint-staged": ">=8",
+        "prettier": "1.18.2",
+        "webpack-dev-server": "^3.4.1"
+    },
+    "jest": {
+        "automock": false,
+        "setupFiles": [
+            "./spec/javascripts/test_setup.js"
+        ],
+        "roots": [
+            "spec/javascripts"
+        ]
+    },
+    "scripts": {
+        "stylelint": "stylelint '**/*.scss'",
+        "test": "jest"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,css,json,md}": [
+            "prettier --write",
+            "git add"
+        ],
+        "*.js": [
+            "eslint --fix",
+            "git add"
+        ]
     }
-  },
-  "lint-staged": {
-    "*.{js,css,json,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
-  }
 }
