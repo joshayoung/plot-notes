@@ -70,6 +70,6 @@ end
 gem "simple_form"
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
 
-gem "carrierwave", "~> 1.0"
+gem "carrierwave", "~> 1.3"
 
 gem "simplecov", require: false, group: :test
